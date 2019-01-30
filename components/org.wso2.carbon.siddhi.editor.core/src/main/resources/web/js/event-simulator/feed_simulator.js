@@ -1337,12 +1337,9 @@ define([
         var $sourceConfigForm = $(this).closest(".sourceConfigForm");
         var dynamicId = $sourceConfigForm.attr("data-uuid");
         var attributeType = $(this).attr("data-type");
-        var attributeName = $(this)
-          .attr("name")
-          .replaceAll("attributes_", "");
         var id = this.id;
         $sourceConfigForm
-          .find(".attributes_" + attributeName + "_config")
+          .find("."+id + "_config")
           .html(
             self.generateRandomAttributeConfiguration(
               randomType,
@@ -2611,7 +2608,7 @@ define([
       '              <option value="property">Property based </option>' +
       '              <option value="regex">Regex based</option>' +
       "           </select>" +
-      '   <div class ="attributes_{{attributeName}}_config">' +
+      '   <div class ="attributes_{{attributeName}}_{{id}}_config">' +
       "   </div> " +
       "</div>";
 
